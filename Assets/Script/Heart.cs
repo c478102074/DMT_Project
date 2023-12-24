@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Heart : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int heartvalue=20;
+
+    public Text heart;
+
     void Start()
     {
         
@@ -13,6 +18,6 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        heart.text=heartvalue.ToString("0")+"%";
     }
 }
