@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b9bc4ae1bf0a56458e0c32e645a3413
+guid: 4c2485f2995514a4e9f2ab986b477b9b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,34 +123,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat-1-Itch_0
+      name: UI BARS_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 18
-        width: 13
-        height: 14
+        x: 3
+        y: 6
+        width: 26
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d21aba549c3c1114785b5f245191c9d2
-      internalID: -823304114
+      spriteID: 6453a14ebc71ace4cb98583e6573c5b5
+      internalID: -739537329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat-1-Itch_1
+      name: UI BARS_1
       rect:
         serializedVersion: 2
-        x: 70
-        y: 18
-        width: 13
-        height: 13
+        x: 2
+        y: 12
+        width: 28
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1ab9147b54653145a8bc384b278c595
-      internalID: -1416826297
+      spriteID: 82d18106ce9a69248b727d8c693bd857
+      internalID: -1590151254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI BARS_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 22
+        width: 26
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065965b4d42b8654bacfd0f806599724
+      internalID: -273926118
       vertices: []
       indices: 
       edges: []
@@ -175,8 +196,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-1-Itch_0: -823304114
-      Cat-1-Itch_1: -1416826297
+      UI BARS_0: -739537329
+      UI BARS_1: -1590151254
+      UI BARS_2: -273926118
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

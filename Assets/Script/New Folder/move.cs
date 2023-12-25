@@ -9,6 +9,12 @@ public class move : MonoBehaviour
     public float yforce;
     public float max;
     public Rigidbody2D rb;
+    public Animator anim;
+    public float xVelocity;
+    public float speed;
+
+    public GameObject bar;
+    public Transform Bar;
     void Start()
     {
         
@@ -17,21 +23,31 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("a")) 
-            transform.localScale = new Vector3(-1, 1, 0);
-        if (Input.GetKey("d"))
-            transform.localScale = new Vector3(1, 1, 0);
+        xVelocity = Input.GetAxisRaw("Horizontal");  //可改其他速度变化模式GetAxis
+            if (xVelocity < 0)
+                transform.localScale = new Vector3(-1, 1, 0);
+            if (xVelocity > 0)
+                transform.localScale = new Vector3(1, 1, 0);
+
+        rb.velocity = new Vector2(xVelocity * speed, rb.velocity.y);
+        anim.SetFloat("moveSpeed", Mathf.Abs(xVelocity));
+
         if (Input.GetKey("space"))
         {
+            bar.SetActive(true);
             forceCounter += Time.deltaTime;
             if (forceCounter >= max)
                 forceCounter = max;
-        }
+            Bar.localScale = new Vector3(forceCounter / max, 1, 0);
+            Bar.position = new Vector3(transform.position.x -(1 - forceCounter / max) / 2f, transform.position.y + 1f, 0);
             
+        }
+
         if(Input.GetKeyUp("space"))
         {
             rb.velocity = new Vector2(transform.localScale.x * xforce, yforce * forceCounter);
             forceCounter = 0f;
+            bar.SetActive(false);
         }
            
 
