@@ -18,22 +18,47 @@ public class PlayVideoOnKeyPress : MonoBehaviour
 
     private bool play = false;
 
-    private int i=0;
+    public bool tennis;
+
+    public bool canteen;
+
+
+    public float timeclose=2.0f;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!play)
         {
+            if(canteen)
+            {
+                gameObject.GetComponent<Animator>().SetBool("colide",true);
+                Invoke("playViedo", 1.0f);
+
+                return;
+            }
+
+            
             PlayerPrefs.SetInt("canmove", 0);
             heart.SetActive(false);
             music.GetComponent<AudioSource>().mute=true;
             
             viedo.SetActive(true);
-            Invoke("stopViedo", 2.0f);
+            Invoke("stopViedo", timeclose);
             play = true;
+            
         }
+    }
 
-
+    void playViedo()
+    {
+            PlayerPrefs.SetInt("canmove", 0);
+            heart.SetActive(false);
+            music.GetComponent<AudioSource>().mute=true;
+            
+            viedo.SetActive(true);
+            Invoke("stopViedo", timeclose);
+            play = true;
     }
     void stopViedo()
     {
@@ -41,19 +66,19 @@ public class PlayVideoOnKeyPress : MonoBehaviour
         music.GetComponent<AudioSource>().mute=false;
         PlayerPrefs.SetInt("canmove", 1);
 
-        if (i==0)
+        if (tennis)
         {
             talkUI.SetActive(true);
              heart.SetActive(true);
             boy.SetActive(true);
-            i++;
             girl.transform.position = position.position;
         }
-        if(i==1)
+        if(canteen)
         {
             talkUI.SetActive(true);
             heart.SetActive(true);
-            i++;
+            gameObject.GetComponent<SpriteRenderer>().enabled=false;
+            gameObject.GetComponent<Animator>().enabled=false;
         }
     }
 }
