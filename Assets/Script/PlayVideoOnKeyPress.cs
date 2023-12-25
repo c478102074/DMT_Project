@@ -6,18 +6,19 @@ using UnityEngine.Video;
 public class PlayVideoOnKeyPress : MonoBehaviour
 {
     public GameObject viedo;
-    private bool tennis = false;
-
     public GameObject boy;
     public GameObject girl;
 
     public GameObject talkUI;
     public GameObject heart;
+
     public Transform position;
 
-    public Sprite down;
+    public GameObject music;
 
     private bool play = false;
+
+    private int i=0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,6 +26,8 @@ public class PlayVideoOnKeyPress : MonoBehaviour
         {
             PlayerPrefs.SetInt("canmove", 0);
             heart.SetActive(false);
+            music.GetComponent<AudioSource>().mute=true;
+            
             viedo.SetActive(true);
             Invoke("stopViedo", 2.0f);
             play = true;
@@ -35,17 +38,22 @@ public class PlayVideoOnKeyPress : MonoBehaviour
     void stopViedo()
     {
         viedo.SetActive(false);
+        music.GetComponent<AudioSource>().mute=false;
         PlayerPrefs.SetInt("canmove", 1);
-        if (!tennis)
+
+        if (i==0)
         {
-            boy.SetActive(true);
             talkUI.SetActive(true);
-            tennis = true;
-            heart.SetActive(true);
+             heart.SetActive(true);
+            boy.SetActive(true);
+            i++;
             girl.transform.position = position.position;
-            Animator ani = girl.GetComponent<Animator>();
-            ani.SetFloat("Vertical", -1);
-            ani.SetFloat("Horizontal", 0);
+        }
+        if(i==1)
+        {
+            talkUI.SetActive(true);
+            heart.SetActive(true);
+            i++;
         }
     }
 }
